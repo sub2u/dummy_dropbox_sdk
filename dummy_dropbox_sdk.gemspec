@@ -3,19 +3,19 @@ $:.push File.expand_path("../lib", __FILE__)
 require "version"
 
 Gem::Specification.new do |s|
-  s.name        = "dummy_dropbox"
+  s.name        = "dummy_dropbox_sdk"
   s.version     = DummyDropbox::VERSION
-  s.authors     = ["Fernando Guillen"]
-  s.email       = ["fguillen.mail@gmail.com"]
-  s.homepage    = "https://github.com/fguillen/DummyDropbox"
-  s.summary     = "Dummy monkey patching for the dropbox ruby gem: 'dropbox'"
-  s.description = "Dummy monkey patching for the dropbox ruby gem: 'dropbox'. You can test your Dropbox utility using a local folder to simulate your Dropbox folder."
+  s.authors     = ["Panter llc"]
+  s.email       = ["info@panter.ch"]
+  s.homepage    = "https://github.com/panter/dummy_dropbox_sdk"
+  s.summary     = "Dummy monkey patching for the dropbox-sdk ruby gem: 'dropbox-sdk'"
+  s.description = "Dummy monkey patching for the dropbox-sdk ruby gem: 'dropbox-sdk'. You can test your Dropbox utility using a local folder to simulate your Dropbox folder."
 
   s.rubyforge_project = "DummyDropbox"
   
   s.add_development_dependency "bundler", ">= 1.0.0.rc.6"
   
-  s.add_dependency "dropbox"
+  s.add_dependency "dropbox-sdk", ">= 1.1"
 
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
