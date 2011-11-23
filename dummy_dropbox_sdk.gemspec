@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.name        = "dummy_dropbox_sdk"
   s.version     = DummyDropbox::VERSION
   s.authors     = ["Panter llc"]
-  s.email       = ["info@panter.ch"]
+  s.email       = ["gems@panter.ch"]
   s.homepage    = "https://github.com/panter/dummy_dropbox_sdk"
   s.summary     = "Dummy monkey patching for the dropbox-sdk ruby gem: 'dropbox-sdk'"
   s.description = "Dummy monkey patching for the dropbox-sdk ruby gem: 'dropbox-sdk'. You can test your Dropbox utility using a local folder to simulate your Dropbox folder."

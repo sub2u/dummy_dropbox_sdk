@@ -7,7 +7,7 @@ end
 require 'ostruct'
 
 module DummyDropbox
-  @@root_path = File.expand_path( "#{File.dirname(__FILE__)}/../test/fixtures/dropbox" )
+  @@root_path = File.expand_path( "./test/fixtures/dropbox" )
   
   def self.root_path=(path)
     @@root_path = path
