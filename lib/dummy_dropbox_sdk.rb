@@ -85,6 +85,13 @@ class DropboxClient
     FileUtils.copy_file(file_obj.path, File.join(DummyDropbox::root_path, to_path))
     return self.metadata(to_path)
   end
+
+  def account_info()
+    {
+      'display_name' => 'Dummy Dropbox SDK',
+      'email' => 'dummy_dropbox@example.com'
+    }
+  end
    
   # TODO these methods I don't used yet. They are commented out because they
   #      have to be checked against the api if the signature match
