@@ -1,8 +1,9 @@
 PATH
   remote: .
   specs:
-    dummy_dropbox_sdk (0.0.11)
+    dummy_dropbox_sdk (0.0.13)
       dropbox-sdk (>= 1.1)
+      mime-types
 
 GEM
   remote: http://rubygems.org/
@@ -10,6 +11,7 @@ GEM
     dropbox-sdk (1.1)
       json
     json (1.6.1)
+    mime-types (1.18)
 
 PLATFORMS
   ruby
@@ -18,3 +20,4 @@ DEPENDENCIES
   bundler (>= 1.0.0.rc.6)
   dropbox-sdk (>= 1.1)
   dummy_dropbox_sdk!
+  mime-types
