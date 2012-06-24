@@ -70,30 +70,32 @@ class DropboxClient
   end
 
   def file_create_folder(path, options={})
-    FileUtils.mkdir( "#{DummyDropbox::root_path}/#{path}" )
+    file_path = File.join(DummyDropbox::root_path, path)
+    raise DropboxError.new("Folder exists!") if File.exists?(file_path)
+    FileUtils.mkdir(file_path)
     # intercepted result:
     # {"modified"=>"Wed, 23 Nov 2011 10:24:37 +0000", "bytes"=>0, "size"=>"0
     # bytes", "is_dir"=>true, "rev"=>"2f04dc6147", "icon"=>"folder",
     # "root"=>"app_folder", "path"=>"/test_from_console", "thumb_exists"=>false,
     # "revision"=>47}
-    return self.metadata( path )
+    return self.metadata(path)
   end
 
   def metadata(path, options={})
-    dummy_path = "#{DummyDropbox::root_path}/#{path}"
+    dummy_path = File.join(DummyDropbox::root_path, path)
     raise DropboxError.new("File not found") unless File.exists?(dummy_path)
 
     list_hash_files = []
     if File.directory?(dummy_path)
       Dir.entries(dummy_path).each do |file_name|
-        file_path = "#{dummy_path}/#{file_name}"
+        file_path = File.join(dummy_path, file_name)
         unless File.directory?(file_path)
           list_hash_files << {"size" => readable_file_size(File.size(file_path), 2),
                               "bytes" => File.size(file_path),
                               "is_dir" => false,
                               "modified" => File.mtime(file_path),
                               "mime_type" => MIME::Types.type_for(file_path)[0].content_type,
-                              "path" => "#{path}/#{file_name}"}
+                              "path" => File.join(path, file_name)}
         end
       end
 
